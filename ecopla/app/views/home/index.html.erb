@@ -1,0 +1,9 @@
+<% if usuario_signed_in? %>
+  <!-- Usuário logado: exibe mensagem de boas-vindas e o link de logout -->
+  <p>Olá, <%= current_usuario.email %>!</p>
+  <%= button_to "Logout", destroy_usuario_session_path, method: :delete, data: { confirm: "Tem certeza que deseja sair?" } %>
+<% else %>
+  <!-- Usuário não logado: exibe links para sign in e sign up -->
+  <%= link_to "Sign In", new_usuario_session_path %> |
+  <%= link_to "Sign Up", new_usuario_registration_path %>
+<% end %>
